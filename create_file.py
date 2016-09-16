@@ -1,4 +1,4 @@
-#/bin/python
+#!/bin/python
 
 # #*#*#**#*#*#/#
 import csv
@@ -12,7 +12,7 @@ timeperiod = 0
 subject_no = 0
 
 while start < now:
-    if(timeperiod == 4):
+    if(timeperiod == 5):
         start += timedelta(minutes=20)
     elif timeperiod == 11:
         start += timedelta(minutes=5)
@@ -26,7 +26,7 @@ while start < now:
 
 
 
-print(timeperiod, subject_no)
+#print(timeperiod, subject_no)
 if subject_no > 7 or subject_no == -1:
     print("Свобода")
     exit()
@@ -46,8 +46,10 @@ if weekday in range(len(timetable)):
     subject_name = timetable[weekday][str(subject_no)]
 
     if timeperiod%2:
-        subject_no += 1
         sys.stdout.write(subject_name[0].upper() + subject_name[1:] + " > ")
+
+    subject_no += 1
+
 
     subject_name = timetable[weekday][str(subject_no)]
     sys.stdout.write(subject_name[0].upper() + subject_name[1:] + "\n")
