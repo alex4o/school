@@ -8,6 +8,7 @@ timetable = []
 
 now = datetime.now()
 start = datetime(hour=7,minute=30,year=now.year,month=now.month,day=now.day)
+#now = datetime(hour=7,minute=40,year=now.year,month=now.month,day=now.day) 
 timeperiod = 0
 subject_no = 0
 
@@ -25,16 +26,17 @@ while start < now:
     timeperiod += 1
 
 
-
 #print(timeperiod, subject_no)
 if subject_no > 7 or subject_no == -1:
     print("Свобода")
     exit()
+else:
+    sys.stdout.write(str(int((start-now).total_seconds()/60)) + " ")
 
 if timeperiod%2 == 0:
     sys.stdout.write("Междучасие > ")
 
-with open("timetable.csv") as file:
+with open(__file__[:-14] + "/timetable.csv") as file:
     reader = csv.DictReader(file)
     for row in reader:
         timetable.append(row)
@@ -55,5 +57,5 @@ if weekday in range(len(timetable)):
     sys.stdout.write(subject_name[0].upper() + subject_name[1:] + "\n")
 else: 
     #weekday = int(input("Weekday: "))
-    weekday = 2
+    weekday = 4
     print(timetable[weekday][str(subject_no)])
