@@ -4,6 +4,7 @@
 import csv
 import sys
 from datetime import time,date,datetime,timedelta
+from math import ceil
 timetable = []
 
 now = datetime.now()
@@ -31,7 +32,7 @@ if subject_no > 7 or subject_no == -1:
     print("Свобода")
     exit()
 else:
-    sys.stdout.write(str(int((start-now).total_seconds()/60)) + " ")
+    sys.stdout.write(str(ceil((start-now).total_seconds()/60)) + " ")
 
 if timeperiod%2 == 0:
     sys.stdout.write("Междучасие > ")
