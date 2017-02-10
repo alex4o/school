@@ -8,7 +8,7 @@ from math import ceil
 timetable = []
 
 now = datetime.now()
-start = datetime(hour=8 ,minute=0,year=now.year,month=now.month,day=now.day)
+start = datetime(hour=13 ,minute=30,year=now.year,month=now.month,day=now.day)
 #now = datetime(hour=7,minute=40,year=now.year,month=now.month,day=now.day) 
 timeperiod = 0
 subject_no = 0
